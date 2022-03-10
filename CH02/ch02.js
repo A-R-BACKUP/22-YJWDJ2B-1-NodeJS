@@ -30,4 +30,3 @@ const num4 = 2;
 const res = 3;
 
 console.log(`${num3} 더하기 ${num4}는 ${res}입니다.`)
-

@@ -58,3 +58,54 @@
   
   결과: 1 더하기 2는 3입니다.
   ```
+  
+#### 2.1.3 객체 리터럴
+- 리터럴(Literal)
+  - 구체적인 값
+    - 문자열 리터럴: 'abc', "abc". \`abc\`
+    - 숫자 리터럴: 123, 12.345
+    - 배열 리터럴: [~, ~, ~]
+    - 객체 리터럴: {~, ~, ~}
+- 객체 리터럴
+  - old 버전
+  ```js
+  // old 버전의 객체 리터럴
+  var sayNode = function() {
+  console.log('Node'); // 함수선언(정의)
+  }; // saynode() 함수 정의
+  var es = 'ES';
+  var oldObject = {  //sayJS() 메소드 정의
+  sayJS: function() {
+  console.log('JS');
+  },
+  sayNodeMethod: sayNode, // 키:값
+  };
+  oldObject[es + 6] = 'Fantastic';
+  oldObject[es + 7] = '가나다';
+  // 자바스크립트에서는 실행 중 객체에 속성을 추가 할 수 있다.
+  // 속성명(키)를 동적으로 변경시켜가면서 추가하려면 변수처리
+  // 이때 사용하는 개념: 객체 <==> 연관배열
+  // 연관배열: 베열의 index가 문자열인 배열
+  oldObject.sayNodeMethod(); // Node
+  oldObject.sayJS(); // JS
+  console.log(oldObject.ES6); // Fantastic
+  console.log(oldObject.ES7);
+  ```
+  - new 버전
+  ```js
+  // 객체 리터럴 신 문법
+  const newObject = {
+  sayJS() { // 키:값 ---> function 키워드 없이 메소드 정
+  console.log('JS');
+  },
+  sayNode, // 키: 값의 기호가 같으면 하나로 생략 가능
+  [es + 6]: 'Fantastic',
+  };
+  newObject.sayNode(); // Node
+  newObject.sayJS(); // JS
+  console.log(newObject.ES6); // Fantastic // 키에 변수 사용해서 속성 정의 가능
+  ```
+  
+#### 2.1.4 화살표 함수
+- Arrow Function: 매개변수리스트 => 소스코드들
+- 기존 함수 정의 방법의 함수와 화살표 함수에서 this 사용시 주의
