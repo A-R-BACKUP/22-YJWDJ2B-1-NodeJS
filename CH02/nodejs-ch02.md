@@ -143,3 +143,60 @@
     - 두번째 then(콜백)의 콜백에서 프로미스 객체 생성해서 반환
     - 세번째 ...
     - 네번째 ...
+  - 여러개의 비동기 동작이 모두 실행되어야 하는 경우:
+    - Promise.all(프로미스 객체들의 배열)
+    - 배열에 있는 모든 프로미스가 성공해야 성공한 것으로 동작
+    
+#### 2.1.8 async/await
+- 노드 7.6 버전 이후, ES2017 이후
+- 가독성을 높임
+- 동작은 비동기 동작하는데 코딩은 동기적으로 작성할 수 있음
+- 적용하는 조건
+  - 1. 함수가 반드시 async 함수여야 한다.
+       - async 함수는 return하지 않아도 무조건 프로미스 객체를 반환한다
+       - async 함수에 대해 then(), catch() 처리 가능함
+  - 2. 비동기 코드에는 await를 함께 표기
+   
+    ```js
+    // 1. async 함수 만들 
+    async function findAndSaveUser(Users) {
+    // const findAndSaveUser = async function(Users){}
+    // const findAndSaveUser = async (Users) => {}
+    // 2. 비동기 코드에 await
+    // 3. error 처리를 위해서는 try~catch를 사용한다.
+    try{
+      let user = await Users.findOne({})
+      user.name='zero';
+      user = await user.save();
+      user = await Users.findOne({gender: 'm'})
+    } catch(err) {
+      console.error(err);
+      }
+    }
+    ```
+        
+### 2.2 Front-end JS
+- 거의 대부분 브라우저에서 사용하는 코드
+- HTML의 script 태그 내의 코드
+- HTML처리 객체
+  - DOM: document 객체와 관련 (html 문서와 밀접관계)
+  - BOM: window 객체와 관련(history, href, navigator, geolocation)
+
+#### 2.2.1 AJAX(Asynchronous Javascript And XML)
+- Web 2.0의 시작, Mashup(매시업)-OpenAPI
+- 웹페이지의 이동없이 서버의 요청에 대한 응답을 받아 처리 할 수 있는 기술
+- XML ==> JSON
+- XMLHttpRequest 객체 사용하여 통신
+  - 관련 대체 라이브러리 많음
+  - jQuery.ajax(), axios, fetch
+    - fetch VS axios
+      - fetch: JS 표준 라이브러리
+      - axios: 따로 설치해야 하는 라이브러리, 편리성 높음
+    - axios 사용
+      - 설치 사용
+        - npm install axios
+      - CDN 사용
+        ```js
+       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        ```
