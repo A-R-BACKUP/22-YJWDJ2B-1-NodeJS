@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const formData = new FormData();
+    formData.append('name', 'Kim Yeungjin'); // 추가하기
+    formData.append('item', 'Orange');
+    formData.append('item', 'Suika');
+    // {name: '김영진', item:['Orange', 'Orange']}
+    console.log(formData.has('item')); // item을 Key로 하는 정보를 저장하고 있나?
+    console.log(formData.has('money'));
+    console.log(formData.get('item')); // 'Orange' - 해당 Key의 맨처음 요소 반환
+    console.log(formData.getAll('item')); // ['Orange', 'Suika']
+    formData.get('test');
+    formData.append('test', ['Burger', 'Hotdog']);
+    console.log(formData.get('test'));
+    formData.delete('test');
+    console.log(formData.get('test')); // null
+    formData.set('item', 'Strawberry'); // 덮어쓰기
+    console.log(formData.getAll('item')); // ? 'Strawberry'
+</script>
+</body>
+</html>
