@@ -21,4 +21,28 @@
   - module.exports
 - 모듈 사용
   - require(사용 모듈 경로)
-#### 2.1.1 const, let
+- 모듈일지라도 확장자는 js
+  - ES6 이후로 모듈을 구분하기 위해서 확장자를 mjs(있지만 잘 안 쓴다.)
+  - module.exports ---> export default 모듈로 사용 할 객체
+- require(사용모듈경로)
+  - ---> import(변수명) from 사용모듈경로;
+
+### 3.4 노드의 내장객체
+- 따로 설치하지 않고 사용가능
+    
+#### 3.4.1 global
+- 전역 객체, 브라우저 - window 객체와 같은 역활
+- window.setTimeout() ----> setTimeout() 사용가능
+- global.setTimeout() ----> setTimeout() 사용가능
+- global 키워드 생략 가능
+- global.console.log('')
+- 모든 js에서 공유하는 객체
+  - 공유 데이터 사용시키기 가능: 사용을 권장하지 않음
+- js에서는 실행중 객체에 동적으로 속성 추가 가능
+
+#### 3.4.2 console 객체
+- [global.]console 객체
+  - 주로 디버깅용: 변수값 확인, 에러내용 확인
+  - 소스코드의 실행시간 조사
+    - console.time(식별문자열): 실행시간 조사 시작
+    - console.timeEnd(식별문자열): 실행시간 조사 종료 및 실행시간 표시해줌
