@@ -8,7 +8,9 @@ async function getUser() { // 로딩 시 사용자 가져오는 함수
         // users: {id:name} 형태, {123123:김영진, 123123123123:이영진, ..........}
 
         // 사용자마다 반복적으로 화면 표시 및 이벤트 연결
-        Object.keys(users).map(function (key) {
+        Object.keys(users) // users데이터에서 키값들의 배열
+            //Object.keys(users) ==> ['김영진', '이영진', '최영진']
+            .map(function (key, index) {
             const userDiv = document.createElement('div');
             const span = document.createElement('span');
             span.textContent = users[key];

@@ -3,6 +3,9 @@ const fs = require('fs').promises;
 
 const users = {}; // 데이터 저장용
 
+// 매 요청마다 async(req, res) => {} 가 실행된다.
+// req: 요청정보(readStram으로 내부 구현)
+// res: 응답정보(writeStream으로 내부 구d)
 http.createServer(async (req, res) => {
     try {
         if (req.method === 'GET') {
