@@ -21,8 +21,8 @@ http.createServer(async (req, res) => {
         const expires = new Date();
         // 쿠키 유효 시간을 현재시간 + 5분으로 설정
         expires.setMinutes(expires.getMinutes() + 5);
-        res.writeHead(302, {
-            Location: '/',
+        res.writeHead(302, { // 임시이동, 리다이렉션
+            Location: '/', // 이동 위치를 지정
             'Set-Cookie': `name=${encodeURIComponent(name)}; Expires=${expires.toGMTString()}; HttpOnly; Path=/`,
         });
         res.end();
@@ -30,7 +30,7 @@ http.createServer(async (req, res) => {
     } else if (cookies.name) {
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end(`${cookies.name}님 안녕하세요`);
-    } else {
+    } else { // GET / 요청 처리
         try {
             const data = await fs.readFile('./cookie2.html');
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });

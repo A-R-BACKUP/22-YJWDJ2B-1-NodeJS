@@ -120,3 +120,25 @@
   
 - session
   - 쿠키와 함께 사용되고, 세션의 정보는 서버에 저장 관리
+  - 세션의 정보를 단순히 서버에 저장하지 않음: Redis, Memcached 등과 같은 DB 사용
+  - 세션쿠키: 세션을 위해 사용되는 쿠키
+  
+### 4.4 https와 http2
+- https
+  - secure, http+SSL
+  - 요청과 응답 사이에 암호화 처리
+  - https.createServer(인증서관련옵션, 콜백);
+- http2
+  - https + http 버전2 사용
+  - 헤더에 HTTP/2 정보가 있게 됨
+  - require('http2')
+  - https.createSecureServer(인증서관련옵션, 콜백)
+    
+
+### 4.5 cluster
+- 멀티프로세싱
+  - 비교: child_process 모듈
+  - 서버 포트번호는 하나인데 여러개의 서버 객체가 실행되어 분산처리
+    - 성능 개선: 장점
+  - 프로세스 단점과 동일한 단점: 상호 메모리 공유가 불가
+  - 
