@@ -116,4 +116,52 @@
 
 #### 6.2.5 express-session
 - 안전하게 사용하려면 cookie-parser 미들웨어 뒤에 작성할 것
-- ㄴ
+- req.session객체
+- 옵션: p240 참고
+- 세션 쿠기
+  - s: --> s%3A
+
+    
+#### 6.2.6 미들웨어 특성
+- app.use(미들웨어1(), 미들웨어2(),...)
+- next()
+- next('route')
+- next(error)
+- 미들웨어간 데이터 전달법
+  - 1 ) req.session 객체에 속성 추가
+  - 2 ) req 객체에 속성 추가
+    - req.data: 243 페이지 data - 사용자정의 속성명 적으면 됨
+  - 3 ) app.set(키, 값), app.get(키)
+    - ```javascript
+       app.use(
+        (req,res,next) => {
+            req.data1 = '다음 미들웨어에서 사용 할 데이터'
+            next();  
+      } ,
+      (req,res,next) => {
+        console.log(req.data1);
+        next();
+      }
+      )
+       
+      ``` 
+      
+- 미들웨어 내에 다른 미들웨어 사용하기
+  - 조건에 따라 다른 미들웨어 실행시키기 가능
+  - 내부에 미들웨어 호출 코드 작성
+    - 미들웨어명(옵션)(req,res,next);
+```js
+app.use(
+        (req,res,next) => {
+            if (process.env.NODE_ENV==='production') {
+                morgan('combined')(req,res,next);//
+            }
+        }
+)
+```
+
+    
+#### 6.2.7 multer
+- 파일 업로드 기능구현
+- 멀티파트형식 업로드
+  - encrypt="multipart/form-data"
