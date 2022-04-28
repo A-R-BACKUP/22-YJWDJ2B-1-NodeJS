@@ -165,3 +165,28 @@ app.use(
 - 파일 업로드 기능구현
 - 멀티파트형식 업로드
   - encrypt="multipart/form-data"
+
+## 6.3 Router
+* MVC 모델
+  - Controller 부분
+    - Router 구현
+      - app.js: Front Controller
+      - Router: Controller
+  - View: 6.5절
+    - React, Vue, Angular
+    - React-Native (개인적으로 학습해야한다..)
+  - Model: 7, 8장
+
+* router처리: 요청에 대한 분기(if처리를 대체)
+  - 라우터, routing - 라우팅
+  - ルーター
+* route: 루트
+
+- placeholder
+  - 위치 손잡이
+  - url에서 요청의 정보전달을 위해 표시하는 부분
+    - query: ? 뒤 키1=값1&키2=값2&
+    - 요청의 대상 지정: :사용자 정의 문자열
+  - 라우터의 url 부분
+    - /user/:testid
+    - 
