@@ -166,7 +166,7 @@ app.use(
 - 멀티파트형식 업로드
   - encrypt="multipart/form-data"
 
-## 6.3 Router
+### 6.3 Router
 * MVC 모델
   - Controller 부분
     - Router 구현
@@ -189,4 +189,17 @@ app.use(
     - 요청의 대상 지정: :사용자 정의 문자열
   - 라우터의 url 부분
     - /user/:testid
-    - 
+    - req.params.testid
+    - req.query.키1
+
+### 6.4 req, res객체 : p255~256
+- request 객체
+- response 객체
+
+### 6.5 템플릿 엔진: express의 뷰 엔진
+- Pug
+- Nunjucks
+  - firefox mozila 재단
+  - 설치
+    - npm i nunjucks
+    - 변수
