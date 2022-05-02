@@ -203,3 +203,33 @@ app.use(
   - 설치
     - npm i nunjucks
     - 변수
+      - {{변수명}}
+      - {% set 변수명 = 값 %}
+      - {% nunjucks의 코드 구현 %}
+    - 이스케이프(Escape) 여부 설정
+      - {{문자열}} < --- &lt > --- %gt; (html entity)
+      - {{문자열|safe}} --- > 이스케이프 하지 않게 설정
+
+#### 6.5.2 반복문
+* {% for 변수 in 반복객체 %} ~(태그들 넣기) {% endfor %}
+  // 자바스크립트와 동일
+  * 인덱스 사용: {{loop.index}}
+
+#### 6.5.3 조건문
+* {% if 변수 %} ~ {% elif %} ~ {% else %} ~ {% endif %}
+  - js : if (변수){~}else if  변수(변수){~} else{~}
+
+#### 6.5.4 include
+* 다른 뷰파일을 현재 뷰파일에 포함시키기
+  - {% include "파일 경로" %}
+
+#### 6.5.5 extends, block
+* 레이아웃(layout) 처리
+* extends
+  - 다른 파일에서의 block부분을 확장
+* block
+  - extends하는 파일
+    - block의 부분을 구현
+  - extends되는 파일
+    - block으로 표시하여 확장될 영역으로 표시
+- 
