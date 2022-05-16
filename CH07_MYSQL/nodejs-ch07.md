@@ -75,4 +75,45 @@
     - app.js 생성: 317 페이지
   - 8 ) 모델 정의 하기
     - npx sequelize modelgenerate --name User -- attributes name:string,age:integer,married:boolean,command:text,created_at:date
-    - npx 
+    - npx sequelize model:generate --name Comment --attributes comment:string, created_at:date
+  - 9 ) 모델 연결하기
+    - models/index.js 수정
+  - 10 ) 관계 정의
+    - 모델의 associate()메소드 구현
+     
+- 관계 정의
+  - 1:1
+    - 사용자:사용자정보
+    - 모델.hasOne(다른모델)
+    - 다른모델.belongsTo(모델)
+  - 1:N (1:다)
+    - 사용자:게시글
+    - 사용자:휴대전화정보
+    - 부모:자식
+    - 모델.hasMany(다른모델)
+    - 다른모델.belongsTo(모델)
+  - N:M (다:다)
+    - 게시글:댓글?
+    - 학교:학생?
+    - 게시글:해시태그
+    - 다른모델.belongsToMany(모델,{through:"테이블명"})
+    - 모델.belongsToMany(모델,{through:"테이블명"})
+    
+    
+- RESTful하게 코딩하기, SPA(Single Page Application): ajax : axios
+  - method
+  - url
+  - request data
+  - response data
+  - 1 ) GET / 요청 --> 최초 접속시 표시 view
+  - 2 )
+    ```js
+    POST
+    /users
+    {이름: , 나이ㅏ}
+     ```
+    
+
+
+시발 프로젝트 이름 왜 바뀌었냐고
+시발 프로젝트 이름 왜 바뀌었냐고
